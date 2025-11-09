@@ -1,8 +1,5 @@
-import React from 'react'
 
 function App() {
-
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#03040a] via-[#071027] to-[#04030a] text-slate-100 px-6 py-12">
       <main className="max-w-3xl w-full text-center">
