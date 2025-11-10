@@ -1,17 +1,95 @@
 @import "tailwindcss";
 
+/* Modern two-theme system using CSS variables. Themes are applied by
+   setting `data-theme="light"` or `data-theme="dark"` on <html>. */
+
 :root {
+  /* typography */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* color-scheme fallback */
+  color-scheme: light;
+
+  /* Light theme tokens (default) */
+  --bg: #f7f8fb; /* page background */
+  --surface: #ffffff; /* cards, nav */
+  --text: #0f1724; /* primary text */
+  --muted: #6b7280; /* secondary text */
+  --accent: #06b6d4; /* cyan/teal accent */
+  --accent-foreground: #ffffff;
+  --glass: rgba(15, 23, 36, 0.04);
+  --border: rgba(15, 23, 36, 0.06);
+  --shadow: 0 6px 20px rgba(2,6,23,0.08);
+}
+
+/* Dark theme tokens */
+html[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b1220; /* deep navy */
+  --surface: #0f1724; /* near-black surface */
+  --text: #e6eef6; /* light text */
+  --muted: #9aa6b2; /* muted text */
+  --accent: #2dd4bf; /* teal accent */
+  --accent-foreground: #052023;
+  --glass: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.04);
+  --shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+/* Apply tokens */
+html, body {
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility surface class for components that need the surface color */
+.surface {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* Link hover using accent */
+.theme-link {
+  color: var(--text);
+  transition: color 180ms ease;
+}
+.theme-link:hover {
+  color: var(--accent);
+}
+
+/* Theme-aware accent button */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Small helper for rounded pill nav background */
+.nav-pill {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+}
+
+/* smooth theme transitions */
+* {
+  transition: background-color 200ms ease, color 160ms ease, border-color 160ms ease;
 }
 
