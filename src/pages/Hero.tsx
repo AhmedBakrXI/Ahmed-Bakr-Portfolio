@@ -16,7 +16,7 @@ const HeroSection = () => {
 
               <div className='flex items-center mt-4 md:mt-6'>
                 <div className='h-0.5 w-12 bg-accent mr-4 hidden md:block' />
-                <h2 className='text-xl md:text-2xl text-muted'>I'm <span className='ml-2 text-(--text) font-medium'>Ahmed</span></h2>
+                <h2 className='text-xl md:text-2xl text-muted'>I'm <span className='ml-2 text-(--text) font-medium'>Ahmed Bakr</span></h2>
               </div>
 
               <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold mt-4 leading-tight'>
@@ -28,9 +28,9 @@ const HeroSection = () => {
               </p>
 
               <div className='flex items-center gap-4'>
-                <a href='#contact' className='btn-primary'>Got a project?</a>
+                <a href='#contact' className='btn-primary cursor-target'>Got a project?</a>
 
-                <a href='/resume.pdf' className='btn-secondary'>My resume</a>
+                <a href='/resume.pdf' className='btn-secondary cursor-target'>My resume</a>
               </div>
             </div>
           </div>
