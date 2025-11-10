@@ -98,7 +98,7 @@ const HeroBgAnimation = (props: HeroBgAnimationProps) => {
         <motion.img
           src={props.img}
           alt='Background'
-          className=' w-2/3 h-auto min-h-full object-contain object-bottom'
+          className=' w-2/3 h-auto min-h-full object-contain object-bottom cursor-target'
           initial={{ y: 40, opacity: 0, scale: 0.98 }}
           animate={imageVisible ? { y: 0, opacity: 1, scale: 1 } : { y: 40, opacity: 0, scale: 0.98 }}
           transition={{ duration: 1.6, ease: [0.2, 0.8, 0.2, 1], delay: 0.08 }}

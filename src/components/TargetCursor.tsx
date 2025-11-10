@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useCallback, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { gsap } from 'gsap';
 
 export interface TargetCursorProps {
@@ -279,11 +280,11 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     return null;
   }
 
-  return (
+  const portal = (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999]"
-      style={{ willChange: 'transform' }}
+      className="fixed top-0 left-0 w-0 h-0 pointer-events-none"
+      style={{ willChange: 'transform', zIndex: 2147483647 }}
     >
       <div
         ref={dotRef}
@@ -308,6 +309,8 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       />
     </div>
   );
+
+  return typeof document !== 'undefined' ? createPortal(portal, document.body) : null;
 };
 
 export default TargetCursor;

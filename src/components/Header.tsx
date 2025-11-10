@@ -29,7 +29,7 @@ const NavBarLinks = () => {
       <ul className='flex space-x-6 ml-6'>
         {navItems.map(({ title, link }) => (
           <li key={link} className='group'>
-            <a href={link} className='cursor-pointer text-(--text) hover:text-(--accent) transition-all duration-500'>
+            <a href={link} className='cursor-target text-(--text) hover:text-accent transition-all duration-500'>
               {title}
             </a>
             {/* <div className="mx-auto h-px w-0 bg-(--accent) group-hover:w-full transition-all duration-500" /> */}
@@ -47,7 +47,7 @@ type NavBarButtonProps = {
 
 const NavBarButton = ({ isOpen, onToggle }: NavBarButtonProps) => {
   return (
-    <div className='surface h-16 w-16 rounded-full flex items-center justify-center md:hidden cursor-pointer'>
+    <div className='surface h-16 w-16 rounded-full flex items-center justify-center md:hidden cursor-target'>
       <button aria-label='Menu Button' aria-expanded={isOpen} onClick={onToggle}>
         {isOpen ? <X /> : <Menu />}
       </button>
