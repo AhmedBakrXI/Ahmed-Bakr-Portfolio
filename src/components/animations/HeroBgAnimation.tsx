@@ -3,152 +3,28 @@ const HeroSVGAnimation = () => {
     <svg
       width='100%'
       height='100%'
-      viewBox='0 0 776 832'
+      viewBox='0 0 820 832'
+      preserveAspectRatio='xMidYMid slice'
+      style={{ height: '100%', width: 'auto' }}
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <circle cx='460.698' cy='532' r='300' fill='#2DD4BF' fillOpacity='0.61' />
       <path
-        d='M210.145 788.763L350.035 164.342L759.25 583.899L210.145 788.763Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M210.145 788.763L350.035 164.342L759.25 583.899L210.145 788.763Z'
-        stroke='black'
-        strokeWidth='5'
+        d='M191 262.872L281.957 221.425L305 211V246.853C305 247.463 256.894 268.466 232.84 278.891L305 295.673V330L191 295.673V262.872Z'
+        stroke='#2DD4BF'
+        strokeWidth='12'
       />
       <path
-        d='M210.145 788.763L350.035 164.342L759.25 583.899L210.145 788.763Z'
-        stroke='black'
-        strokeWidth='5'
+        d='M794.72 740.943L719.938 767.19L701 773.777L704.428 744.017C704.486 743.511 743.95 730.391 763.674 723.894L709.095 703.493L712.377 675L797.856 713.716L794.72 740.943Z'
+        stroke='#2DD4BF'
+        strokeWidth='12'
       />
       <path
-        d='M210.145 788.763L350.035 164.342L759.25 583.899L210.145 788.763Z'
-        stroke='black'
-        strokeWidth='5'
+        d='M676.862 772.554L692.566 670.353L688.914 662.35L671.613 779.161L676.862 772.554Z'
+        stroke='#2DD4BF'
+        strokeWidth='6'
       />
-      <path
-        d='M191.365 772.027L374.601 158.923L753.458 606.083L191.365 772.027Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M191.365 772.027L374.601 158.923L753.458 606.083L191.365 772.027Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M191.365 772.027L374.601 158.923L753.458 606.083L191.365 772.027Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M191.365 772.027L374.601 158.923L753.458 606.083L191.365 772.027Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M177.139 757.638L394.595 155.82L747.682 623.597L177.139 757.638Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M177.139 757.638L394.595 155.82L747.682 623.597L177.139 757.638Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M177.139 757.638L394.595 155.82L747.682 623.597L177.139 757.638Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <path
-        d='M177.139 757.638L394.595 155.82L747.682 623.597L177.139 757.638Z'
-        stroke='black'
-        strokeWidth='5'
-      />
-      <rect
-        x='235.743'
-        y='414.923'
-        width='133.191'
-        height='133.191'
-        transform='rotate(44.1497 235.743 414.923)'
-        fill='url(#pattern0_7_116)'
-      />
-      <rect
-        x='625.698'
-        y='397'
-        width='135'
-        height='135'
-        fill='url(#pattern1_7_116)'
-      />
-      <rect
-        x='577.698'
-        y='252'
-        width='43'
-        height='43'
-        fill='url(#pattern2_7_116)'
-      />
-      <rect
-        x='234.698'
-        y='283'
-        width='60'
-        height='60'
-        fill='url(#pattern3_7_116)'
-      />
-      <rect
-        x='333.698'
-        y='373'
-        width='23'
-        height='23'
-        fill='url(#pattern4_7_116)'
-      />
-      <defs>
-        <pattern
-          id='pattern0_7_116'
-          patternContentUnits='objectBoundingBox'
-          width='1'
-          height='1'
-        >
-          <use href='#image0_7_116' transform='scale(0.00195312)' />
-        </pattern>
-        <pattern
-          id='pattern1_7_116'
-          patternContentUnits='objectBoundingBox'
-          width='1'
-          height='1'
-        >
-          <use
-            href='#image1_7_116'
-            transform='translate(-0.000417014) scale(0.000834028)'
-          />
-        </pattern>
-        <pattern
-          id='pattern2_7_116'
-          patternContentUnits='objectBoundingBox'
-          width='1'
-          height='1'
-        >
-          <use href='#image2_7_116' transform='scale(0.00195312)' />
-        </pattern>
-        <pattern
-          id='pattern3_7_116'
-          patternContentUnits='objectBoundingBox'
-          width='1'
-          height='1'
-        >
-          <use href='#image3_7_116' transform='scale(0.00195312)' />
-        </pattern>
-        <pattern
-          id='pattern4_7_116'
-          patternContentUnits='objectBoundingBox'
-          width='1'
-          height='1'
-        >
-          <use href='#image4_7_116' transform='scale(0.00195312)' />
-        </pattern>
-      </defs>
+      {/* Blurry circle removed; replaced by page-level radial background */}
     </svg>
   )
 }
@@ -160,13 +36,11 @@ interface HeroBgAnimationProps {
 const HeroBgAnimation = (props: HeroBgAnimationProps) => {
   return (
     <div className='relative w-full h-full'>
-      <div className='absolute inset-0 overflow-hidden flex items-end justify-center h-auto'>
-        <div className='flex justify-center w-full'>
+      <div className='absolute inset-0 overflow-hidden flex items-center justify-center'>
+        <div className='flex justify-center h-full w-full' style={{ transform: 'translateX(-4%)' }}>
           <HeroSVGAnimation />
         </div>
       </div>
-
-      {/* place image at the bottom: use flex align-end and object-bottom so the image's bottom aligns with container bottom */}
       <div className='absolute inset-0 overflow-hidden flex items-end justify-center'>
         <img
           src={props.img}
