@@ -1,4 +1,3 @@
-import Layout from '../components/Layout'
 import HeroImage from '../assets/me.png'
 import HeroBgAnimation from '../components/animations/HeroBgAnimation'
 import { motion } from 'motion/react'
@@ -6,7 +5,6 @@ import TypingText from '../components/ui/shadcn-io/typing-text'
 
 const HeroSection = () => {
   return (
-    <Layout>
       <section id='hero' className='hero-radial'>
         <div className='flex flex-col md:flex-row items-center min-h-screen md:h-screen overflow-hidden'>
           <div className='w-full h-[50vh] md:w-1/2 md:h-full'>
@@ -115,7 +113,6 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </section>
-    </Layout>
   )
 }
 

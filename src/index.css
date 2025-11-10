@@ -121,6 +121,12 @@ body {
   z-index: 1;
 }
 
+/* Radial position helpers */
+.radial-top-right {
+  --hero-radial-x: 90%;
+  --hero-radial-y: 10%;
+}
+
 /* Utility surface class for components that need the surface color */
 .surface {
   background-color: var(--surface-glass);
