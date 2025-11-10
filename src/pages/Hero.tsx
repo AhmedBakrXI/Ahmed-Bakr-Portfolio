@@ -5,7 +5,7 @@ import HeroBgAnimation from '../components/animations/HeroBgAnimation'
 const HeroSection = () => {
   return (
     <Layout>
-      <section id='hero'>
+      <section id='hero' className='hero-radial'>
         <div className='flex flex-col md:flex-row items-center min-h-screen md:h-screen overflow-hidden'>
           <div className='w-full h-[50vh] md:w-1/2 md:h-full'>
             <div className='flex flex-col items-center justify-center h-full'>

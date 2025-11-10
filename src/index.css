@@ -59,18 +59,28 @@ body {
    Positioned to match the original SVG circle center (~61% x, ~63% y).
    Uses the theme accent color with subtle alpha. */
 :root {
-  --hero-radial-x: 61%;
-  --hero-radial-y: 63%;
+  --hero-radial-x: 75%;
+  --hero-radial-y: 75%;
   --hero-radial-color: rgba(45, 212, 191, 0.20);
 }
 
-body::before {
+/* Scoped hero radial: placed on hero section only. */
+.hero-radial {
+  position: relative;
+}
+.hero-radial::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at var(--hero-radial-x) var(--hero-radial-y), var(--hero-radial-color) 0%, rgba(45,212,191,0.06) 30%, transparent 60%);
-  z-index: -1;
+  background: radial-gradient(circle at var(--hero-radial-x) var(--hero-radial-y), var(--hero-radial-color) 0%, rgba(45,212,191,0.06) 50%, transparent 60%);
+  z-index: 0;
+}
+
+/* Ensure hero direct children render above the radial */
+.hero-radial > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Utility surface class for components that need the surface color */
