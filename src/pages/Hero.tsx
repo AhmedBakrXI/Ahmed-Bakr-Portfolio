@@ -58,7 +58,7 @@ const HeroSection = () => {
 
               <TypingText
                 text={[
-                  'I build digital products and experiences: web apps, components and polished UIs.'
+                  'I build digital products: web apps, and polished UIs.'
                 ]}
                 typingSpeed={75}
                 pauseDuration={1500}
@@ -94,6 +94,25 @@ const HeroSection = () => {
           <div className='w-full h-[50vh] flex justify-center items-center md:w-1/2 md:h-full relative'>
             <HeroBgAnimation img={HeroImage} />
           </div>
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 20, opacity: 1 }}
+            exit={{ y: 10000, opacity: 0 }}
+            transition={{
+              duration: 1,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              delay: 5
+            }}
+            className='absolute bottom-8 md:bottom-12 left-1/2 flex flex-col items-center'
+          >
+            <span className='text-sm text-muted mb-2'>Scroll Down</span>
+            <div>
+              <div className='w-6 h-10 border-2 border-muted rounded-full flex justify-center items-start p-1'>
+                <div className='w-2 h-2 bg-muted rounded-full mb-1'></div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
