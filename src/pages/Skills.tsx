@@ -67,7 +67,7 @@ const Skills = () => {
         <div className='inline-block'>
           <h1 className='text-4xl font-bold mt-32 md:mt-32'>Skills Page</h1>
           <motion.div
-            className='h-1 bg-accent mt-2'
+            className='h-1 bg-accent mt-2 rounded-full'
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: false, amount: 0.2 }}

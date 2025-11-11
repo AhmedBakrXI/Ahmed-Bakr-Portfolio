@@ -38,7 +38,7 @@ export function ItemInfoModal({ open, item, onClose }: ItemInfoModalProps) {
             initial={{ scale: 0.96, y: 24, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.96, y: 24, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 240, damping: 22 }}
+            transition={{ type: 'spring', stiffness: 200, damping: 12 }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start gap-4">

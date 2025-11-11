@@ -1,4 +1,5 @@
-import { motion, MotionValue } from 'framer-motion'
+import { motion, MotionValue, useTransform } from 'framer-motion'
+import { FiMousePointer } from 'react-icons/fi'
 import { GalleryItem } from './GalleryItem'
 
 interface GalleryContainerProps {
@@ -25,10 +26,12 @@ export function GalleryContainer({
   onItemClick
 }: GalleryContainerProps) {
   const angleStep = 360 / images.length
+  // Counter-rotate overlay text so it stays upright
+  const counterRotation = useTransform(rotation, (v) => -v)
 
   return (
     <motion.div
-      className="absolute rounded-full"
+      className="absolute rounded-full "
       style={{
         width: `${parentSize}px`,
         height: `${parentSize}px`,
@@ -38,6 +41,17 @@ export function GalleryContainer({
         transformOrigin: `${radius}px ${radius}px`
       }}
     >
+      {/* Center overlay helper text */}
+      <motion.div className="pointer-events-none absolute inset-0 flex items-center justify-center pb-4" style={{ rotate: counterRotation }}>
+        <motion.div
+          className="select-none flex flex-col items-center -translate-y-16 text-base md:text-lg font-semibold gap-1"
+          animate={{ y: [0, -44, 0], scale: [1, 1, 1] }}
+          transition={{ duration: 0.0, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <FiMousePointer className="h-6 w-6 md:h-7 md:w-7 text-accent" />
+          <span>Click any icon</span>
+        </motion.div>
+      </motion.div>
       {images.map((item, i) => (
         <GalleryItem
           key={i}
