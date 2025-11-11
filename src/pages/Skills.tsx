@@ -12,12 +12,12 @@ import {
 
 const galleryProps: InfiniteCircularGalleryProps = {
   images: [
-    { src: <SiSpring size={80} className='hover:drop-shadow-[#87bd48]' />, label: 'Spring' },
-    { src: <SiReact size={80} />, label: 'React' },
-    { src: <SiQt size={80} />, label: 'Qt' },
-    { src: <SiAndroid size={80} />, label: 'Android' },
-    { src: <SiFlutter size={80} />, label: 'Flutter' },
-    { src: <SiFastapi size={80} />, label: 'FastAPI' }
+    { src: <SiSpring size={80} className='hover:drop-shadow-[#87bd48]' />, label: 'Spring', yoe: 2, about: 'Building robust backend services with Spring Boot, REST APIs, and Spring Security.' },
+    { src: <SiReact size={80} />, label: 'React', yoe: 3, about: 'Creating modern, accessible SPAs with React, TypeScript, and Framer Motion.' },
+    { src: <SiQt size={80} />, label: 'Qt', yoe: 1, about: 'Developing cross‑platform desktop UIs and tooling with Qt.' },
+    { src: <SiAndroid size={80} />, label: 'Android', yoe: 2, about: 'Native Android apps, Kotlin/Jetpack, and smooth UI/UX.' },
+    { src: <SiFlutter size={80} />, label: 'Flutter', yoe: 1, about: 'Cross‑platform mobile apps with Flutter and clean architecture.' },
+    { src: <SiFastapi size={80} />, label: 'FastAPI', yoe: 2, about: 'High‑performance Python APIs with FastAPI and Pydantic.' }
   ],
   radius: 250,
   cardWidth: 80,
@@ -30,8 +30,8 @@ const Skills = () => {
   return (
     <section className='relative h-screen flex flex-col overflow-hidden'>
       {/* Decorative blurry circles */}
-      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 md:-top-32 md:-right-32 w-[28rem] md:w-[36rem] aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
-      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 md:-bottom-32 md:-left-32 w-[28rem] md:w-[36rem] aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
+      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 md:-top-32 md:-right-32 w-md md:w-xl aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 md:-bottom-32 md:-left-32 w-md md:w-xl aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
 
       <div className='relative z-10 w-full flex flex-col items-center justify-center'>
         <div className="inline-block">

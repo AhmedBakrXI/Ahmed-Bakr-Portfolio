@@ -11,6 +11,7 @@ interface GalleryItemProps {
   totalImages: number
   onHover?: () => void
   onUnhover?: () => void
+  onClick?: () => void
 }
 
 export function GalleryItem({
@@ -23,7 +24,8 @@ export function GalleryItem({
   cardHeight,
   totalImages,
   onHover,
-  onUnhover
+  onUnhover,
+  onClick
 }: GalleryItemProps) {
   const baseAngleDeg = angleStep * index
   const theta = (baseAngleDeg * Math.PI) / 180
@@ -44,7 +46,7 @@ export function GalleryItem({
 
   return (
     <div
-      className="absolute rounded-xl overflow-hidden cursor-target"
+      className="absolute rounded-xl overflow-hidden cursor-target select-none"
       style={{
         width: `${cardWidth}px`,
         height: `${cardHeight}px`,
@@ -56,6 +58,7 @@ export function GalleryItem({
       }}
       onMouseEnter={onHover}
       onMouseLeave={onUnhover}
+      onClick={onClick}
     >
       {/* <img
         src={src}
