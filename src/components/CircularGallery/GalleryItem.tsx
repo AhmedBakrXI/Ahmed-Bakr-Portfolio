@@ -30,8 +30,10 @@ export function GalleryItem({
   const x = Math.cos(theta) * radius
   const y = Math.sin(theta) * radius
 
+  // Position the element so its BOTTOM-CENTER sits exactly on the circle point
+  // This keeps every item at the same distance from the circle center regardless of rotation
   const leftPx = radius + x - cardWidth / 2
-  const topPx = radius - y - cardHeight / 2
+  const topPx = radius - y - cardHeight
 
   // Dynamic rotation formula based on number of images
   // Each card's bottom points toward the center of the circle

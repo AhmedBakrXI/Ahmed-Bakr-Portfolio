@@ -1,4 +1,5 @@
 import InfiniteCircularGallery, { type InfiniteCircularGalleryProps } from '../components/CircularGallery/InfiniteCircularGallery'
+import { motion } from 'framer-motion'
 
 import {
   SiSpring,
@@ -28,8 +29,18 @@ const galleryProps: InfiniteCircularGalleryProps = {
 const Skills = () => {
   return (
     <section className='relative h-screen flex flex-col overflow-hidden'>
-      <div className='w-full flex items-start justify-center'>
-        <h1 className='text-4xl font-bold mt-32 md:mt-32'>Skills Page</h1>
+      <div className='w-full flex flex-col items-center justify-center'>
+        <div className="inline-block">
+          <h1 className='text-4xl font-bold mt-32 md:mt-32'>Skills Page</h1>
+            <motion.div
+              className='h-1 bg-accent mt-2'
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: false, amount: 0.6 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              style={{ transformOrigin: 'center' }}
+            />
+        </div>
       </div>
       <div className='relative w-full h-full'>
         <InfiniteCircularGallery {...galleryProps} />

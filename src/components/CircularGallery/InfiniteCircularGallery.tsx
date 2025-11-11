@@ -37,7 +37,7 @@ export default function InfiniteCircularGallery({
   return (
     <div
       ref={containerRef}
-      className="absolute bottom-0 w-screen left-1/2 -translate-x-1/2 h-full overflow-hidden pointer-events-auto"
+      className="absolute inset-x-0 bottom-0 w-full h-full overflow-hidden pointer-events-auto"
     >
       <GalleryContainer
         rotation={rotation}

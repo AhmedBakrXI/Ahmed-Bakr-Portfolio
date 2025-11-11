@@ -26,13 +26,12 @@ export function GalleryContainer({
 
   return (
     <motion.div
-      className="absolute"
+      className="absolute rounded-full"
       style={{
         width: `${parentSize}px`,
         height: `${parentSize}px`,
-        left: '50%',
+        left: `calc(50% - ${radius}px)`,
         bottom: `-${radius}px`,
-        translateX: '-50%',
         rotate: rotation,
         transformOrigin: `${radius}px ${radius}px`
       }}
