@@ -9,6 +9,8 @@ interface GalleryItemProps {
   cardWidth: number
   cardHeight: number
   totalImages: number
+  onHover?: () => void
+  onUnhover?: () => void
 }
 
 export function GalleryItem({
@@ -19,7 +21,9 @@ export function GalleryItem({
   radius,
   cardWidth,
   cardHeight,
-  totalImages
+  totalImages,
+  onHover,
+  onUnhover
 }: GalleryItemProps) {
   const baseAngleDeg = angleStep * index
   const theta = (baseAngleDeg * Math.PI) / 180
@@ -48,6 +52,8 @@ export function GalleryItem({
         transform: `rotate(${cardRotation}deg)`,
         transformOrigin: `center bottom`
       }}
+      onMouseEnter={onHover}
+      onMouseLeave={onUnhover}
     >
       {/* <img
         src={src}
@@ -55,7 +61,7 @@ export function GalleryItem({
         className="w-full h-[85%] object-cover"
       /> */}
       {src}
-      <p className="text-center text-white text-sm py-1">{label}</p>
+      <p className="text-center text-sm py-1">{label}</p>
     </div>
   )
 }

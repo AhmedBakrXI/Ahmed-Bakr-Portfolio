@@ -8,6 +8,8 @@ interface GalleryContainerProps {
   images: Array<{ src: React.ReactNode; label: string }>
   cardWidth: number
   cardHeight: number
+  onHover?: () => void
+  onUnhover?: () => void
 }
 
 export function GalleryContainer({
@@ -16,7 +18,9 @@ export function GalleryContainer({
   parentSize,
   images,
   cardWidth,
-  cardHeight
+  cardHeight,
+  onHover,
+  onUnhover
 }: GalleryContainerProps) {
   const angleStep = 360 / images.length
 
@@ -32,9 +36,6 @@ export function GalleryContainer({
         rotate: rotation,
         transformOrigin: `${radius}px ${radius}px`
       }}
-      initial={{ rotate: 0 }}
-      animate={{ rotate: 360 }}
-      transition={{ repeat: Infinity, duration: 30, ease: 'linear' }}
     >
       {images.map((item, i) => (
         <GalleryItem
@@ -47,6 +48,8 @@ export function GalleryContainer({
           cardWidth={cardWidth}
           cardHeight={cardHeight}
           totalImages={images.length}
+          onHover={onHover}
+          onUnhover={onUnhover}
         />
       ))}
     </motion.div>

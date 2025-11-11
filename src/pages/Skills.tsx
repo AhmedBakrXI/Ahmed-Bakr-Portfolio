@@ -11,7 +11,7 @@ import {
 
 const galleryProps: InfiniteCircularGalleryProps = {
   images: [
-    { src: <SiSpring size={80} />, label: 'Spring' },
+    { src: <SiSpring size={80} className='hover:drop-shadow-[#87bd48]' />, label: 'Spring' },
     { src: <SiReact size={80} />, label: 'React' },
     { src: <SiQt size={80} />, label: 'Qt' },
     { src: <SiAndroid size={80} />, label: 'Android' },
@@ -22,6 +22,7 @@ const galleryProps: InfiniteCircularGalleryProps = {
   cardWidth: 80,
   cardHeight: 130,
   speedDegPerSec: 12
+  ,respectReducedMotion: false
 }
 
 const Skills = () => {

@@ -9,18 +9,25 @@ interface UseCircularGalleryProps {
   cardWidth?: number
   cardHeight?: number
   speedDegPerSec?: number
+  paused?: boolean
+  respectReducedMotion?: boolean
 }
 
 export function useCircularGallery({
   radiusProp,
   cardWidth = 80,
   cardHeight = 130,
-  speedDegPerSec = 12
+  speedDegPerSec = 12,
+  paused = false,
+  respectReducedMotion = true
 }: UseCircularGalleryProps = {}) {
   const rotation = useMotionValue(0)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [radius, setRadius] = useState(radiusProp ?? 260)
   const reduceMotion = useRef(false)
+  const pausedRef = useRef(paused)
+  // Keep ref in sync with prop
+  useEffect(() => { pausedRef.current = paused }, [paused])
 
   // Respect reduced motion preference
   useEffect(() => {
@@ -35,7 +42,7 @@ export function useCircularGallery({
 
   // Auto rotation (frame-based)
   useAnimationFrame((_, delta) => {
-    if (reduceMotion.current) return
+    if ((respectReducedMotion && reduceMotion.current) || pausedRef.current) return
     const next = clamp360(rotation.get() + (delta / 1000) * speedDegPerSec)
     rotation.set(next)
   })
