@@ -29,20 +29,24 @@ const galleryProps: InfiniteCircularGalleryProps = {
 const Skills = () => {
   return (
     <section className='relative h-screen flex flex-col overflow-hidden'>
-      <div className='w-full flex flex-col items-center justify-center'>
+      {/* Decorative blurry circles */}
+      <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 md:-top-32 md:-right-32 w-[28rem] md:w-[36rem] aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
+      <div aria-hidden className="pointer-events-none absolute -bottom-24 -left-24 md:-bottom-32 md:-left-32 w-[28rem] md:w-[36rem] aspect-square rounded-full bg-accent/20 blur-[140px] z-0" />
+
+      <div className='relative z-10 w-full flex flex-col items-center justify-center'>
         <div className="inline-block">
           <h1 className='text-4xl font-bold mt-32 md:mt-32'>Skills Page</h1>
             <motion.div
               className='h-1 bg-accent mt-2'
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
-              viewport={{ once: false, amount: 0.6 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               style={{ transformOrigin: 'center' }}
             />
         </div>
       </div>
-      <div className='relative w-full h-full'>
+      <div className='relative z-10 w-full h-full'>
         <InfiniteCircularGallery {...galleryProps} />
       </div>
     </section>
