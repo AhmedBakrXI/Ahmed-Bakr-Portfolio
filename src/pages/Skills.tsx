@@ -62,7 +62,7 @@ const galleryProps: InfiniteCircularGalleryProps = {
 
 const Skills = () => {
   return (
-    <section className='relative h-screen flex flex-col overflow-hidden skill-radial'>
+    <section id='skills' className='relative h-screen flex flex-col overflow-hidden skill-radial'>
       <div className='relative z-10 w-full flex flex-col items-center justify-center'>
         <div className='inline-block'>
           <h1 className='text-4xl font-bold mt-32 md:mt-32'>Skills Page</h1>

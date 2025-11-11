@@ -28,7 +28,6 @@ function App () {
                 <HeroSection />
                 <About />
                 <Skills />
-                <About />
               </Layout>
             }
           />

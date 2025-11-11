@@ -3,6 +3,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Disable native smooth scroll; we'll use custom JS animation */
+html {
+  scroll-behavior: auto;
+}
+
 /* Modern two-theme system using CSS variables. Themes are applied by
    setting `data-theme="light"` or `data-theme="dark"` on <html>. */
 
@@ -95,6 +100,8 @@ body {
 :root {
   --hero-radial-x: 75%;
   --hero-radial-y: 0%;
+  --about-radial-x: 0%;
+  --about-radial-y: 50%;
   --skill-radial-x: 50%;
   --skill-radial-y: 100%;
   /* light-mode hero radial */
@@ -126,6 +133,28 @@ body {
   z-index: 1;
 }
 
+.about-radial {
+  position: relative;
+}
+.about-radial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--about-radial-x) var(--about-radial-y),
+    var(--hero-radial-color) 0%,
+    var(--hero-radial-fade) 20%,
+    transparent 60%
+  );
+  z-index: 0;
+}
+
+/* Ensure hero direct children render above the radial */
+.about-radial > * {
+  position: relative;
+  z-index: 1;
+}
 
 .skill-radial {
   position: relative;

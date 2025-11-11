@@ -72,7 +72,7 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.6 }}
                   href='#contact'
-                  className='btn-primary cursor-target'
+                  className='btn-primary cursor-target font-semibold'
                 >
                   Got a project?
                 </motion.a>
@@ -82,7 +82,7 @@ const HeroSection = () => {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.7, duration: 0.6 }}
                   href='/resume.pdf'
-                  className='btn-secondary cursor-target'
+                  className='btn-secondary cursor-target font-semibold'
                 >
                   My resume
                 </motion.a>

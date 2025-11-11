@@ -1,45 +1,88 @@
 import { useEffect, useState } from 'react'
 import LogoAnimation from './animations/LogoAnimation'
 import { Menu, X } from 'lucide-react'
+import { smoothScrollTo } from '../utils/smoothScroll'
+
+const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const href = e.currentTarget.getAttribute('href')
+  if (href?.startsWith('#')) {
+    e.preventDefault()
+    const target = href.slice(1)
+    smoothScrollTo(target, 800)
+  }
+}
 
 const NavLogo = () => {
   return (
-    <a href='/' style={{ color: 'var(--accent)' }}>
+    <a href='#hero' onClick={handleClick} style={{ color: 'var(--accent)' }}>
       <LogoAnimation fillColor='var(--accent)' width={48} height={48} />
     </a>
   )
 }
 
 interface NavBarLinksProps {
-    title: string;
-    link: string;
+  title: string
+  link: string
 }
 
 const navItems: NavBarLinksProps[] = [
-    { title: 'About', link: '/about' },
-    { title: 'Projects', link: '/projects' },
-    { title: 'Skills', link: '/skills' },
-    { title: 'Experience', link: '/experience' },
-    { title: 'Contact', link: '/contact' },
-];
+  { title: 'About', link: '#about' },
+  { title: 'Skills', link: '#skills' },
+  { title: 'Projects', link: '#projects' },
+  { title: 'Experience', link: '#experience' },
+  { title: 'Contact', link: '#contact' }
+]
 
 const NavBarLinks = () => {
+  const [activeSection, setActiveSection] = useState<string>('')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.link.slice(1)).filter(id => id)
+      let current = ''
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 200) {
+            current = sectionId
+          }
+        }
+      }
+
+      setActiveSection(current)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <nav className='hidden md:block'>
       <ul className='flex space-x-6 ml-6'>
-        {navItems.map(({ title, link }) => (
-          <li key={link} className='group'>
-            <a href={link} className='cursor-target text-(--text) hover:text-accent transition-all duration-500'>
-              {title}
-            </a>
-            {/* <div className="mx-auto h-px w-0 bg-(--accent) group-hover:w-full transition-all duration-500" /> */}
-          </li>
-        ))}
+        {navItems.map(({ title, link }) => {
+          const sectionId = link.slice(1)
+          const isActive = activeSection === sectionId
+          return (
+            <li key={link} className='group'>
+              <a
+                href={link}
+                onClick={handleClick}
+                className={`cursor-target transition-all duration-300 font-semibold  ${
+                  isActive ? 'text-accent' : 'text-(--text) hover:text-accent'
+                }`}
+              >
+                {title}
+              </a>
+            </li>
+          )
+        })}
       </ul>
     </nav>
   )
 }
-         
+
 type NavBarButtonProps = {
   isOpen: boolean
   onToggle: () => void
@@ -48,14 +91,24 @@ type NavBarButtonProps = {
 const NavBarButton = ({ isOpen, onToggle }: NavBarButtonProps) => {
   return (
     <div className='surface h-16 w-16 rounded-full flex items-center justify-center md:hidden cursor-target'>
-      <button aria-label='Menu Button' aria-expanded={isOpen} onClick={onToggle}>
+      <button
+        aria-label='Menu Button'
+        aria-expanded={isOpen}
+        onClick={onToggle}
+      >
         {isOpen ? <X /> : <Menu />}
       </button>
     </div>
   )
 }
 
-const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+const MobileMenu = ({
+  isOpen,
+  onClose
+}: {
+  isOpen: boolean
+  onClose: () => void
+}) => {
   useEffect(() => {
     if (!isOpen) return
     const onKey = (e: KeyboardEvent) => {
@@ -70,18 +123,52 @@ const MobileMenu = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     }
   }, [isOpen, onClose])
 
+  const handleClick = (href: string) => {
+    if (href.startsWith('#')) {
+      const target = href.slice(1)
+      smoothScrollTo(target, 800)
+      onClose()
+    }
+  }
+
   if (!isOpen) return null
 
   return (
-    <div className='fixed inset-0 z-50 flex flex-col items-center pt-28' role='dialog' aria-modal='true'>
+    <div
+      className='fixed inset-0 z-50 flex flex-col items-center pt-28'
+      role='dialog'
+      aria-modal='true'
+    >
       <div className='absolute inset-0' onClick={onClose} />
       <div className='relative z-10 w-full max-w-md mx-auto px-6'>
         <div className='surface rounded-xl p-8 flex flex-col space-y-6 text-center'>
-          <a href='/about' className='text-lg theme-link' onClick={onClose}>About</a>
-          <a href='/projects' className='text-lg theme-link' onClick={onClose}>Projects</a>
-          <a href='/skills' className='text-lg theme-link' onClick={onClose}>Skills</a>
-          <a href='/experience' className='text-lg theme-link' onClick={onClose}>Experience</a>
-          <a href='/contact' className='text-lg theme-link' onClick={onClose}>Contact</a>
+          <a
+            href='#about'
+            className='text-lg theme-link'
+            onClick={() => handleClick('#about')}
+          >
+            About
+          </a>
+          <a href='/projects' className='text-lg theme-link' onClick={onClose}>
+            Projects
+          </a>
+          <a
+            href='#skills'
+            className='text-lg theme-link'
+            onClick={() => handleClick('#skills')}
+          >
+            Skills
+          </a>
+          <a
+            href='/experience'
+            className='text-lg theme-link'
+            onClick={onClose}
+          >
+            Experience
+          </a>
+          <a href='/contact' className='text-lg theme-link' onClick={onClose}>
+            Contact
+          </a>
         </div>
       </div>
     </div>
@@ -180,7 +267,7 @@ const Header = () => {
 
       {/* Mobile menu button */}
       <div className='md:hidden'>
-        <NavBarButton isOpen={menuOpen} onToggle={() => setMenuOpen((s) => !s)} />
+        <NavBarButton isOpen={menuOpen} onToggle={() => setMenuOpen(s => !s)} />
       </div>
 
       {/* Mobile overlay menu */}

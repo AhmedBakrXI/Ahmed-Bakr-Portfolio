@@ -1,6 +1,6 @@
 const About = () => {
     return (
-        <section className='min-h-screen flex flex-col items-center justify-center hero-radial radial-top-right'>
+        <section id='about' className='min-h-screen flex flex-col items-center justify-center about-radial'>
             <h1 className='text-4xl font-bold mb-8'>About Page</h1>
         </section>
     )

@@ -4,7 +4,7 @@ import TargetCursor from './TargetCursor'
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <TargetCursor />
+      <TargetCursor spinDuration={6} />
       <Header />
       {children}
     </>
