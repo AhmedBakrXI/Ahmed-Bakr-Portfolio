@@ -1,8 +1,8 @@
 import { GalleryContainer } from './GalleryContainer'
 import { useCircularGallery } from './useCircularGallery'
 
-interface InfiniteCircularGalleryProps {
-  images: Array<{ src: string; label: string }>
+export interface InfiniteCircularGalleryProps {
+  images: Array<{ src: React.ReactNode; label: string }>
   radius?: number
   cardWidth?: number
   cardHeight?: number
@@ -28,7 +28,7 @@ export default function InfiniteCircularGallery({
   return (
     <div
       ref={containerRef}
-      className="absolute bottom-0 w-screen left-1/2 -translate-x-1/2 h-full overflow-hidden pointer-events-auto"
+      className="absolute bottom-0 w-screen left-1/2 -translate-x-[47.5%] h-full overflow-hidden pointer-events-auto"
     >
       <GalleryContainer
         rotation={rotation}

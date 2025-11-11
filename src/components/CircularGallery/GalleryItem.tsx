@@ -1,13 +1,14 @@
 import React from 'react'
 
 interface GalleryItemProps {
-  src: string
+  src: React.ReactNode
   label: string
   index: number
   angleStep: number
   radius: number
   cardWidth: number
   cardHeight: number
+  totalImages: number
 }
 
 export function GalleryItem({
@@ -17,7 +18,8 @@ export function GalleryItem({
   angleStep,
   radius,
   cardWidth,
-  cardHeight
+  cardHeight,
+  totalImages
 }: GalleryItemProps) {
   const baseAngleDeg = angleStep * index
   const theta = (baseAngleDeg * Math.PI) / 180
@@ -27,26 +29,32 @@ export function GalleryItem({
   const leftPx = radius + x - cardWidth / 2
   const topPx = radius - y - cardHeight / 2
 
-  const midIndex = 2.5 // (6 images - 1) / 2
+  // Dynamic rotation formula based on number of images
+  // Each card's bottom points toward the center of the circle
+  const cardRotation = -(baseAngleDeg) + 90;
+
+  const midIndex = (totalImages - 1) / 2
   const zIndex = Math.round(100 - Math.abs(index - midIndex))
 
   return (
     <div
-      className="absolute rounded-xl overflow-hidden bg-gray-800 shadow-xl border border-white/10"
+      className="absolute rounded-xl overflow-hidden cursor-target"
       style={{
         width: `${cardWidth}px`,
         height: `${cardHeight}px`,
         left: `${leftPx}px`,
         top: `${topPx}px`,
         zIndex,
-        transform: `rotate(${(baseAngleDeg - 90) * 0.8}deg)`
+        transform: `rotate(${cardRotation}deg)`,
+        transformOrigin: `center bottom`
       }}
     >
-      <img
+      {/* <img
         src={src}
         alt={label}
         className="w-full h-[85%] object-cover"
-      />
+      /> */}
+      {src}
       <p className="text-center text-white text-sm py-1">{label}</p>
     </div>
   )

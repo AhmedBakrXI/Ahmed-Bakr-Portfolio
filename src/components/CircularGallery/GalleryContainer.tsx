@@ -5,7 +5,7 @@ interface GalleryContainerProps {
   rotation: MotionValue<number>
   radius: number
   parentSize: number
-  images: Array<{ src: string; label: string }>
+  images: Array<{ src: React.ReactNode; label: string }>
   cardWidth: number
   cardHeight: number
 }
@@ -46,6 +46,7 @@ export function GalleryContainer({
           radius={radius}
           cardWidth={cardWidth}
           cardHeight={cardHeight}
+          totalImages={images.length}
         />
       ))}
     </motion.div>
