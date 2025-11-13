@@ -100,7 +100,7 @@ body {
 :root {
   --hero-radial-x: 75%;
   --hero-radial-y: 0%;
-  --about-radial-x: 0%;
+  --about-radial-x: 100%;
   --about-radial-y: 50%;
   --skill-radial-x: 50%;
   --skill-radial-y: 100%;
