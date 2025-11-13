@@ -20,7 +20,7 @@ const HeroSection = () => {
     <section id='hero' className='hero-radial'>
       <div className='flex flex-col md:flex-row items-center min-h-screen md:h-screen overflow-hidden'>
         <div className='w-full h-[50vh] md:w-1/2 md:h-full'>
-          <div className='flex flex-col items-start justify-center h-full hero-left'>
+          <div className='flex flex-col items-start justify-center mt-12 h-full hero-left'>
             <div className='flex justify-center items-center gap-3'>
               <motion.span
                 initial={{ scale: 1, opacity: 0.8 }}
