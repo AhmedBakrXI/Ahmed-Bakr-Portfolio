@@ -4,6 +4,7 @@ import { MdOutlineDownload } from 'react-icons/md'
 import STLogo from '../assets/st.png'
 import ETGLogo from '../assets/etg.png'
 import SiemensLogo from '../assets/siemens.png'
+import Resume from '../assets/Ahmed_Bakr_resume.pdf'
 
 const ResumeCard = () => {
   const cardVariants: Variants = {
@@ -57,7 +58,7 @@ const ResumeCard = () => {
         initial='hidden'
         whileInView='show'
         viewport={{ once: false, amount: 0.25 }}
-        className='flex flex-col justify-start items-center bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-2xl h-96 w-72 rounded-2xl'
+        className='flex flex-col justify-start items-center skeleton-bg p-6 shadow-2xl h-96 w-72 rounded-2xl'
       >
         <div className='flex flex-col justify-start items-center'>
           <h2 className='text-xl font-semibold mb-4 text-accent'>
@@ -122,7 +123,7 @@ const ResumeCard = () => {
           <div className='flex items-center justify-center h-20 w-20'>
             <motion.a
               variants={ctaVariants}
-              href='/Ahmed_Bakr_Resume.pdf'
+              href={Resume}
               download
               className='text-white bg-accent rounded-full p-4 font-medium text-2xl shadow-2xl'
               whileHover={{ scale: 1.08 }}

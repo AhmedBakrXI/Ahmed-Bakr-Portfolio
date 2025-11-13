@@ -3,8 +3,19 @@ import HeroBgAnimation from '../components/animations/HeroBgAnimation'
 import { motion } from 'motion/react'
 import TypingText from '../components/ui/shadcn-io/typing-text'
 import SocialMedia from '../components/animations/SocialMedia'
+import { smoothScrollTo } from '../utils/smoothScroll'
+import Resume from '../assets/Ahmed_Bakr_resume.pdf'
 
 const HeroSection = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const href = e.currentTarget.getAttribute('href')
+    if (href?.startsWith('#')) {
+      e.preventDefault()
+      const target = href.slice(1)
+      smoothScrollTo(target, 800)
+    }
+  }
+
   return (
     <section id='hero' className='hero-radial'>
       <div className='flex flex-col md:flex-row items-center min-h-screen md:h-screen overflow-hidden'>
@@ -74,6 +85,7 @@ const HeroSection = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 href='#contact'
+                onClick={handleClick}
                 className='btn-primary cursor-target font-semibold'
               >
                 Got a project?
@@ -83,7 +95,7 @@ const HeroSection = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
-                href='/resume.pdf'
+                href={Resume}
                 className='btn-secondary cursor-target font-semibold'
               >
                 My resume
