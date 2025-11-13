@@ -34,7 +34,7 @@ export function ItemInfoModal({ open, item, onClose }: ItemInfoModalProps) {
           <motion.div
             role="dialog"
             aria-modal="true"
-            className="relative z-10 w-[92vw] max-w-md rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
+            className="relative z-10 w-[92vw] max-w-md rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-2xl"
             initial={{ scale: 0.96, y: 24, opacity: 0 }}
             animate={{ scale: 1, y: 0, opacity: 1 }}
             exit={{ scale: 0.96, y: 24, opacity: 0 }}
