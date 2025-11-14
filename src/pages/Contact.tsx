@@ -149,9 +149,16 @@ const Contact = () => {
       <div className='mt-4'>
         <SocialMedia viewOnce={false} />
       </div>
-      <h2 className='text-accent font-semibold italic text-center mt-4 text-2xl'>
-        OR
-      </h2>
+      <div className='flex justify-center items-center mt-4'>
+        <div className='relative mx-4 w-full max-w-md overflow-clip'>
+          <h2 className='text-accent font-semibold text-center text-2xl'>
+            OR
+          </h2>
+          {/* Separator Lines */}
+          <div className='absolute top-1/2 left-1/2 translate-x-8 translate-y-1/2 w-1/2 h-px bg-muted' />
+          <div className='absolute top-1/2 right-1/2 -translate-x-8 translate-y-1/2 w-1/2 h-px bg-muted' />
+        </div>
+      </div>
       <ContactMeForm />
     </section>
   )
