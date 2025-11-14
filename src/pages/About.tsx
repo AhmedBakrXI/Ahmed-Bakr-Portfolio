@@ -47,7 +47,7 @@ const ResumeCard = () => {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut', delay: 0.5 }
+      transition: { duration: 0.5, ease: 'easeInOut', delay: 0.5 }
     }
   }
 
