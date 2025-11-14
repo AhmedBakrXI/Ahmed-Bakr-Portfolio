@@ -7,6 +7,7 @@ import Skills from './pages/Skills'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Experiences from './pages/Experiences'
+import Projects from './pages/Projects'
 
 const queryClient = new QueryClient()
 
@@ -15,14 +16,6 @@ function App () {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          {/* <Route
-            path='/'
-            element={
-              <Layout>
-                <ComingSoon />
-              </Layout>
-            }
-          /> */}
           <Route
             path='*'
             element={
@@ -31,6 +24,7 @@ function App () {
                 <About />
                 <Skills />
                 <Experiences />
+                <Projects />
                 <Contact />
               </Layout>
             }

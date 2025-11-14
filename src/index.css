@@ -131,6 +131,8 @@ body {
   --skill-radial-y: 100%;
   --experience-radial-x: 50%;
   --experience-radial-y: 0%;
+  --projects-radial-x: 50%;
+  --projects-radial-y: 50%;
   /* light-mode hero radial */
   --hero-radial-color: rgba(6, 182, 212, 0.2);
   --hero-radial-fade: rgba(6, 182, 212, 0.06);
@@ -236,6 +238,29 @@ body {
 }
 
 .experience-radial > * {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-radial {
+  position: relative;
+}
+
+.projects-radial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--projects-radial-x) var(--projects-radial-y),
+    var(--hero-radial-color) 0%,
+    var(--hero-radial-fade) 30%,
+    transparent 40%
+  );
+  z-index: 0
+}
+
+.projects-radial > * {
   position: relative;
   z-index: 1;
 }
