@@ -28,8 +28,8 @@ interface NavBarLinksProps {
 const navItems: NavBarLinksProps[] = [
   { title: 'About', link: '#about' },
   { title: 'Skills', link: '#skills' },
+  { title: 'Experiences', link: '#experience' },
   { title: 'Projects', link: '#projects' },
-  { title: 'Experience', link: '#experience' },
   { title: 'Contact', link: '#contact' }
 ]
 

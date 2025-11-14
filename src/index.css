@@ -70,7 +70,14 @@ html {
   --scrollbar-track: color-mix(in srgb, var(--text) 6%, transparent 94%);
   /* pill thumb with subtle transparency */
   --scrollbar-thumb: color-mix(in srgb, var(--accent) 70%, transparent 30%);
-  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent) 85%, transparent 15%);
+  --scrollbar-thumb-hover: color-mix(
+    in srgb,
+    var(--accent) 85%,
+    transparent 15%
+  );
+  /* timeline connector */
+  --timeline-connector-size: 3px;
+  --timeline-connector-glow: color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 /* Dark theme tokens */
@@ -97,6 +104,8 @@ html[data-theme='dark'] {
   --scrollbar-track: color-mix(in srgb, var(--text) 10%, transparent 90%);
   --scrollbar-thumb: color-mix(in srgb, var(--accent) 75%, transparent 25%);
   --scrollbar-thumb-hover: var(--accent);
+  /* timeline connector */
+  --timeline-connector-glow: color-mix(in srgb, var(--accent) 40%, transparent);
 }
 
 /* Apply tokens */
@@ -120,6 +129,8 @@ body {
   --about-radial-y: 10%;
   --skill-radial-x: 50%;
   --skill-radial-y: 100%;
+  --experience-radial-x: 50%;
+  --experience-radial-y: 0%;
   /* light-mode hero radial */
   --hero-radial-color: rgba(6, 182, 212, 0.2);
   --hero-radial-fade: rgba(6, 182, 212, 0.06);
@@ -202,6 +213,29 @@ body {
 }
 
 .skill-radial > * {
+  position: relative;
+  z-index: 1;
+}
+
+.experience-radial {
+  position: relative;
+}
+
+.experience-radial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--experience-radial-x) var(--experience-radial-y),
+    var(--hero-radial-color) 0%,
+    var(--hero-radial-fade) 40%,
+    transparent 60%
+  );
+  z-index: 0;
+}
+
+.experience-radial > * {
   position: relative;
   z-index: 1;
 }
@@ -334,6 +368,88 @@ body {
 }
 *::-webkit-scrollbar-thumb:hover {
   background-color: var(--scrollbar-thumb-hover);
+}
+
+/* PrimeReact Timeline Theming */
+.p-timeline {
+  padding: 2rem 0;
+}
+
+/* Connector line between markers */
+.p-timeline-event-connector {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent) 65%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 35%, transparent) 50%,
+    transparent 100%
+  );
+  width: var(--timeline-connector-size);
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent),
+    0 0 16px var(--timeline-connector-glow);
+  opacity: 0.95;
+}
+html[data-theme='dark'] .p-timeline-event-connector {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--accent) 75%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 45%, transparent) 60%,
+    transparent 100%
+  );
+}
+
+/* Horizontal timeline connector */
+.p-timeline-horizontal .p-timeline-event-connector {
+  height: var(--timeline-connector-size);
+  width: auto;
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--accent) 65%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 35%, transparent) 50%,
+    transparent 100%
+  );
+  border-radius: 999px;
+}
+
+/* Marker outer wrapper */
+.p-timeline-event-marker {
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent),
+    0 6px 18px rgba(0, 0, 0, 0.18);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  position: relative;
+  transition: transform 180ms ease, box-shadow 220ms ease;
+}
+.p-timeline-event-marker:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+/* Opposite side text */
+.p-timeline-event-opposite {
+  color: var(--muted);
+  font-size: 0.7rem;
+  /* padding: 0.35rem 0.5rem; */
+}
+
+/* Alternate layout spacing tweak */
+.p-timeline-alternate .p-timeline-event {
+  /* margin-bottom: 2.4rem; */
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .timeline-content,
+  .p-timeline-event-content {
+    min-width: 240px;
+  }
 }
 
 @theme inline {

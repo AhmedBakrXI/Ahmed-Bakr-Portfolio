@@ -129,7 +129,7 @@ const ContactMeForm = () => {
 
 const Contact = () => {
   return (
-    <div
+    <section
       id='contact'
       className='relative min-h-screen flex flex-col overflow-hidden skill-radial'
     >
@@ -153,7 +153,7 @@ const Contact = () => {
         OR
       </h2>
       <ContactMeForm />
-    </div>
+    </section>
   )
 }
 

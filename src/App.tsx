@@ -6,6 +6,7 @@ import Layout from './components/Layout'
 import Skills from './pages/Skills'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Experiences from './pages/Experiences'
 
 const queryClient = new QueryClient()
 
@@ -29,6 +30,7 @@ function App () {
                 <HeroSection />
                 <About />
                 <Skills />
+                <Experiences />
                 <Contact />
               </Layout>
             }
