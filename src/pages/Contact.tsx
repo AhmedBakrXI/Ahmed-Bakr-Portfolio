@@ -69,28 +69,28 @@ const ContactMeForm = () => {
         className='flex flex-col gap-4 w-full max-w-md mt-8 skeleton-bg p-6 rounded-2xl'
         onSubmit={sendEmail}
       >
-        <h2 className='text-accent font-semibold italic text-left mb-4 text-2xl'>
+        <h2 className='text-accent font-semibold text-left mb-4 text-2xl'>
           Send me a message directly
         </h2>
         <input
           type='text'
-          placeholder='Your Name'
+          placeholder='Tell me your name'
           name='user_name'
           required
           className='p-3 rounded-full skeleton-bg'
         />
         <input
           type='email'
-          placeholder='Your Email'
+          placeholder='Drop your email here'
           name='user_email'
           required
           className='p-3 rounded-full skeleton-bg'
         />
         <textarea
-          placeholder='Your Message'
+          placeholder='What would you like to talk about?'
           name='message'
           required
-          className='p-3 rounded-lg skeleton-bg min-h-20'
+          className='p-3 rounded-xl skeleton-bg min-h-20'
         />
         <button
           type='submit'
