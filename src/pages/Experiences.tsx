@@ -1,51 +1,47 @@
 import { motion } from 'motion/react'
 import { Timeline } from 'primereact/timeline'
+import STLogo from '../assets/st.png'
+import ETGLogo from '../assets/etg.png'
+import SiemensLogo from '../assets/siemens.png'
+import ItiLogo from '../assets/iti.png'
 
 const Experiences = () => {
   const events = [
     {
-      status: 'Ordered',
-      date: '15/10/2020 10:30',
-      icon: 'pi pi-shopping-cart',
-      color: '#9C27B0',
-      image: 'game-controller.jpg'
+      status: 'Software Developer — ETG',
+      date: 'Oct 2025 – Present',
+      description:
+        'Building React components and backend logic for JourneyAi, improving UI performance and API integrations.',
+      logo: ETGLogo
     },
     {
-      status: 'Processing',
-      date: '15/10/2020 14:00',
-      icon: 'pi pi-cog',
-      color: '#673AB7'
+      status: 'Graduation Project — STBee Desktop App (STMicroelectronics)',
+      date: 'Sep 2024 - Jun 2025',
+      description:
+        'Built a ZigBee network visualization tool using Qt C++ and designed a UART-based communication protocol.',
+      logo: STLogo
     },
     {
-      status: 'Shipped',
-      date: '15/10/2020 16:15',
-      icon: 'pi pi-shopping-cart',
-      color: '#FF9800'
+      status: 'Software Intern — Siemens Digital Industries Software',
+      date: 'Jul 2024 – Dec 2024',
+      description:
+        'Trained in software architecture, OOAD, clean code, SDLC methodologies, and developed tools using Spring Boot, React, and Qt.',
+      logo: SiemensLogo
     },
     {
-      status: 'Delivered',
-      date: '16/10/2020 10:00',
-      icon: 'pi pi-check',
-      color: '#607D8B'
+      status: 'Software Testing Trainee — ITI',
+      date: 'Aug 2024 – Sept 2024',
+      description:
+        'Learned manual and automated testing fundamentals, test-case design, and defect reporting.',
+      logo: ItiLogo
     },
     {
-      status: 'Delivered',
-      date: '16/10/2020 10:00',
-      icon: 'pi pi-check',
-      color: '#607D8B'
-    },
-    {
-      status: 'Delivered',
-      date: '16/10/2020 10:00',
-      icon: 'pi pi-check',
-      color: '#607D8B'
-    },
-    {
-      status: 'Delivered',
-      date: '16/10/2020 10:00',
-      icon: 'pi pi-check',
-      color: '#607D8B'
-    },
+      status: 'Android Developer Trainee — ITI',
+      date: 'Sep 2022 – Oct 2022',
+      description:
+        'Studied core Android development using Java and Android Studio, building UI-focused mobile apps.',
+      logo: ItiLogo
+    }
   ]
 
   return (
@@ -70,19 +66,33 @@ const Experiences = () => {
           align='alternate'
           className='w-full md:w-3/4'
           marker={() => (
-            <span
-              className='flex items-center justify-center w-4 h-4 rounded-full border-2 border-accent'
-            />
+            <span className='flex items-center justify-center w-4 h-4 rounded-full border-2 border-accent' />
           )}
-          content={item => (
+          content={(item, idx) => (
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
+              className='p-5 rounded-2xl shadow-lg surface border border-accent/20 backdrop-blur-sm'
             >
-              <h3>{item.status}</h3>
-              <p>{item.date}</p>
+              <div
+                className={`flex items-center gap-4 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+              >
+                <img
+                  src={item.logo}
+                  alt={`${item.status} logo`}
+                  className='w-12 h-12 object-contain rounded-lg'
+                />
+                <h3 className='text-xl font-semibold text-accent'>{item.status}</h3>
+              </div>
+              <p className='text-sm opacity-80 mt-1'>{item.date}</p>
+
+              {item.description && (
+                <p className='text-sm mt-3 leading-relaxed opacity-90'>
+                  {item.description}
+                </p>
+              )}
             </motion.div>
           )}
         />
