@@ -63,6 +63,14 @@ html {
   --sidebar-accent-foreground: #0f1724;
   --sidebar-border: rgba(2, 6, 23, 0.06);
   --sidebar-ring: #93c5fd;
+  /* themed scrollbar (light) */
+  --scrollbar-size: 10px;
+  --scrollbar-radius: 999px;
+  /* more transparent track */
+  --scrollbar-track: color-mix(in srgb, var(--text) 6%, transparent 94%);
+  /* pill thumb with subtle transparency */
+  --scrollbar-thumb: color-mix(in srgb, var(--accent) 70%, transparent 30%);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent) 85%, transparent 15%);
 }
 
 /* Dark theme tokens */
@@ -85,6 +93,10 @@ html[data-theme='dark'] {
   --skeleton-bg: rgba(255, 255, 255, 0.05);
   --skeleton-border: rgba(255, 255, 255, 0.1);
   --skeleton-blur: blur(12px);
+  /* themed scrollbar (dark) */
+  --scrollbar-track: color-mix(in srgb, var(--text) 10%, transparent 90%);
+  --scrollbar-thumb: color-mix(in srgb, var(--accent) 75%, transparent 25%);
+  --scrollbar-thumb-hover: var(--accent);
 }
 
 /* Apply tokens */
@@ -294,6 +306,34 @@ body {
 * {
   transition: background-color 200ms ease, color 160ms ease,
     border-color 160ms ease;
+}
+
+/* Themed modern scrollbar (cross-browser) */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+/* WebKit-based browsers */
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+  background: transparent;
+}
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: var(--scrollbar-radius);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: var(--scrollbar-radius);
+  /* create floating pill with rounded ends */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
 }
 
 @theme inline {

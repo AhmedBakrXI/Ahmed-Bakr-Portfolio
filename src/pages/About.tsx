@@ -186,7 +186,7 @@ const About = () => {
               viewport={{ once: true, amount: 0.1 }}
             className='leading-relaxed'>
               I’m currently a Software Engineer at{' '}
-              <span className='inline-flex items-center gap-1'>
+              <span className='inline-flex items-start gap-1'>
                 <img
                   src={ETGLogo}
                   alt='ETG'
@@ -195,7 +195,7 @@ const About = () => {
                 <span className='font-semibold text-accent'>ETG</span>
               </span>
               , and I was a SW intern at{' '}
-              <span className='inline-flex items-center gap-1'>
+              <span className='inline-flex items-start gap-1'>
                 <img
                   src={SiemensLogo}
                   alt='Siemens'
@@ -204,7 +204,7 @@ const About = () => {
                 <span className='font-semibold text-accent'>Siemens</span>
               </span>
               . My graduation project was proudly sponsored by{' '}
-              <span className='inline-flex items-center gap-1'>
+              <span className='inline-flex items-start gap-1'>
                 <img
                   src={STLogo}
                   alt='STMicroelectronics'
