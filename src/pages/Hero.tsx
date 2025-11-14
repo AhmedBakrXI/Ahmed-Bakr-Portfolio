@@ -88,7 +88,7 @@ const HeroSection = () => {
                 onClick={handleClick}
                 className='btn-primary cursor-target font-semibold'
               >
-                Got a project?
+                Got a Project?
               </motion.a>
 
               <motion.a
@@ -98,7 +98,7 @@ const HeroSection = () => {
                 href={Resume}
                 className='btn-secondary cursor-target font-semibold'
               >
-                My resume
+                My Resume
               </motion.a>
             </div>
           </div>

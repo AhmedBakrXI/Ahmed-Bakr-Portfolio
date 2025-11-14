@@ -1,11 +1,21 @@
 import { motion } from 'motion/react'
 import { Timeline } from 'primereact/timeline'
+import { useEffect, useState } from 'react'
 import STLogo from '../assets/st.png'
 import ETGLogo from '../assets/etg.png'
 import SiemensLogo from '../assets/siemens.png'
 import ItiLogo from '../assets/iti.png'
 
 const Experiences = () => {
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767.98px)')
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    setIsMobile(mql.matches)
+    mql.addEventListener('change', onChange)
+    return () => mql.removeEventListener('change', onChange)
+  }, [])
+
   const events = [
     {
       status: 'Software Developer — ETG',
@@ -63,7 +73,7 @@ const Experiences = () => {
         </div>
         <Timeline
           value={events}
-          align='alternate'
+          align={isMobile ? 'left' : 'alternate'}
           className='w-full md:w-3/4'
           marker={() => (
             <span className='flex items-center justify-center w-4 h-4 rounded-full border-2 border-accent' />
@@ -72,19 +82,24 @@ const Experiences = () => {
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className='p-5 rounded-2xl shadow-lg surface border border-accent/20 backdrop-blur-sm'
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className='p-5 rounded-2xl shadow-lg surface cursor-target'
             >
               <div
-                className={`flex items-center gap-4 ${idx % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                className={`flex items-center gap-4 ${
+                  idx % 2 === 1 ? 'md:flex-row-reverse' : ''
+                }`}
               >
                 <img
                   src={item.logo}
                   alt={`${item.status} logo`}
                   className='w-12 h-12 object-contain rounded-lg'
                 />
-                <h3 className='text-xl font-semibold text-accent'>{item.status}</h3>
+                <h3 className='text-xl font-semibold text-accent'>
+                  {item.status}
+                </h3>
               </div>
               <p className='text-sm opacity-80 mt-1'>{item.date}</p>
 
