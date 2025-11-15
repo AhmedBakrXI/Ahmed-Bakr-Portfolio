@@ -149,7 +149,11 @@ const MobileMenu = ({
           >
             About
           </a>
-          <a href='/projects' className='text-lg theme-link' onClick={onClose}>
+          <a
+            href='#projects'
+            className='text-lg theme-link'
+            onClick={() => handleClick('#projects')}
+          >
             Projects
           </a>
           <a
@@ -160,13 +164,17 @@ const MobileMenu = ({
             Skills
           </a>
           <a
-            href='/experience'
+            href='#experience'
             className='text-lg theme-link'
-            onClick={onClose}
+            onClick={() => handleClick('#experience')}
           >
             Experience
           </a>
-          <a href='/contact' className='text-lg theme-link' onClick={onClose}>
+          <a
+            href='#contact'
+            className='text-lg theme-link'
+            onClick={() => handleClick('#contact')}
+          >
             Contact
           </a>
         </div>
