@@ -86,7 +86,7 @@ const Experiences = () => {
                 whileHover={{ y: -4 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className='p-5 rounded-2xl shadow-lg surface cursor-target mb-4'
+                className='p-5 rounded-2xl shadow-lg skeleton-bg cursor-target mb-4'
               >
                 <div
                   className={`flex items-center gap-4 ${
