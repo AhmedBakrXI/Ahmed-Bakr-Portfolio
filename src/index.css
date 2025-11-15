@@ -257,7 +257,7 @@ body {
     var(--hero-radial-fade) 30%,
     transparent 40%
   );
-  z-index: 0
+  z-index: 0;
 }
 
 .projects-radial > * {
@@ -459,9 +459,14 @@ html[data-theme='dark'] .p-timeline-event-connector {
 
 /* Opposite side text */
 .p-timeline-event-opposite {
-  color: var(--muted);
-  font-size: 0.7rem;
+  max-width: auto;
   /* padding: 0.35rem 0.5rem; */
+}
+
+@media (max-width: 640px) {
+  .p-timeline-event-opposite {
+    max-width: 1rem;
+  }
 }
 
 /* Alternate layout spacing tweak */

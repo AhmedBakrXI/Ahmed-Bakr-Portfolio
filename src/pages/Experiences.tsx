@@ -25,7 +25,7 @@ const Experiences = () => {
       logo: ETGLogo
     },
     {
-      status: 'Graduation Project — STBee Desktop App (STMicroelectronics)',
+      status: 'Graduation Project — STMicroelectronics',
       date: 'Sep 2024 - Jun 2025',
       description:
         'Built a ZigBee network visualization tool using Qt C++ and designed a UART-based communication protocol.',
@@ -57,7 +57,7 @@ const Experiences = () => {
   return (
     <section
       id='experience'
-      className='relative min-h-screen flex flex-col overflow-hidden experience-radial'
+      className='relative min-h-screen flex flex-col overflow-hidden experience-radial pb-32'
     >
       <div className='relative z-10 w-full flex flex-col items-center justify-center'>
         <div className='inline-block'>
@@ -71,46 +71,50 @@ const Experiences = () => {
             style={{ transformOrigin: 'center' }}
           />
         </div>
-        <Timeline
-          value={events}
-          align={isMobile ? 'left' : 'alternate'}
-          className='w-full md:w-3/4'
-          marker={() => (
-            <span className='flex items-center justify-center w-4 h-4 rounded-full border-2 border-accent' />
-          )}
-          content={(item, idx) => (
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ y: -4 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className='p-5 rounded-2xl shadow-lg surface cursor-target'
-            >
-              <div
-                className={`flex items-center gap-4 ${
-                  idx % 2 === 1 ? 'md:flex-row-reverse' : ''
-                }`}
+        <div className='w-full flex items-start justify-center md:items-center px-0 md:px-36'>
+          <Timeline
+            value={events}
+            align={isMobile ? 'left' : 'alternate'}
+            className='w-full md:w-3/4'
+            marker={() => (
+              <span className='flex items-center justify-center w-4 h-4 rounded-full border-2 border-accent' />
+            )}
+            content={(item, idx) => (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.25, ease: 'easeOut' }}
+                className='p-5 rounded-2xl shadow-lg surface cursor-target'
               >
-                <img
-                  src={item.logo}
-                  alt={`${item.status} logo`}
-                  className='w-12 h-12 object-contain rounded-lg'
-                />
-                <h3 className='text-xl font-semibold text-accent'>
-                  {item.status}
-                </h3>
-              </div>
-              <p className='text-sm opacity-80 mt-1'>{item.date}</p>
+                <div
+                  className={`flex items-center gap-4 ${
+                    idx % 2 === 1 ? 'md:flex-row-reverse' : ''
+                  }`}
+                >
+                  <img
+                    src={item.logo}
+                    alt={`${item.status} logo`}
+                    className='w-12 h-12 object-contain rounded-lg'
+                  />
+                  <div>
+                    <h3 className='text-base md:text-xl font-semibold text-accent'>
+                      {item.status}
+                    </h3>
+                    <p className='text-sm opacity-80 mt-1'>{item.date}</p>
+                  </div>
+                </div>
 
-              {item.description && (
-                <p className='text-sm mt-3 leading-relaxed opacity-90'>
-                  {item.description}
-                </p>
-              )}
-            </motion.div>
-          )}
-        />
+                {item.description && (
+                  <p className='text-sm mt-3 leading-relaxed opacity-90'>
+                    {item.description}
+                  </p>
+                )}
+              </motion.div>
+            )}
+          />
+        </div>
       </div>
     </section>
   )
