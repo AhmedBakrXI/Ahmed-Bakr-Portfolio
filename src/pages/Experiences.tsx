@@ -57,7 +57,7 @@ const Experiences = () => {
   return (
     <section
       id='experience'
-      className='relative min-h-screen flex flex-col overflow-hidden experience-radial pb-32'
+      className='relative min-h-screen flex flex-col overflow-hidden experience-radial'
     >
       <div className='relative z-10 w-full flex flex-col items-center justify-center'>
         <div className='inline-block'>
@@ -86,7 +86,7 @@ const Experiences = () => {
                 whileHover={{ y: -4 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
-                className='p-5 rounded-2xl shadow-lg surface cursor-target'
+                className='p-5 rounded-2xl shadow-lg surface cursor-target mb-4'
               >
                 <div
                   className={`flex items-center gap-4 ${
