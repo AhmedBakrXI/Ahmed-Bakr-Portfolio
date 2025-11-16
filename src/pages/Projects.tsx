@@ -184,7 +184,7 @@ const GlassCarousel = ({
   const [clickToGo, setClickToGo] = useState(false)
 
   return (
-    <div className='relative flex flex-1 min-h-[450px] w-full h-[75vh] md:h-auto max-w-5xl rounded-3xl surface overflow-hidden px-6 pt-6 pb-16 box-border shadow-2xl'>
+    <div className='relative flex flex-1 min-h-[450px] w-full h-[80vh] md:h-auto max-w-5xl rounded-3xl surface overflow-hidden px-6 pt-6 pb-16 box-border shadow-2xl'>
       <div className='absolute inset-0 pointer-events-none rounded-3xl' />
       <div
         className='relative flex flex-1 rounded-2xl overflow-hidden box-border border'
