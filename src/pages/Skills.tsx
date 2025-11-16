@@ -2,14 +2,17 @@ import InfiniteCircularGallery, {
   type InfiniteCircularGalleryProps
 } from '../components/CircularGallery/InfiniteCircularGallery'
 import { motion } from 'framer-motion'
+import { FaJava } from 'react-icons/fa6'
 
 import {
   SiSpring,
   SiReact,
   SiQt,
-  SiAndroid,
-  SiFlutter,
-  SiFastapi
+  SiFastapi,
+  SiDocker,
+  SiPostgresql,
+  SiRedis,
+  SiMongodb
 } from 'react-icons/si'
 
 const galleryProps: InfiniteCircularGalleryProps = {
@@ -35,23 +38,41 @@ const galleryProps: InfiniteCircularGalleryProps = {
       about: 'Developing cross‑platform desktop UIs and tooling with Qt.'
     },
     {
-      src: <SiAndroid size={80} />,
-      label: 'Android',
-      yoe: 1,
-      about: 'Native Android apps, Java, and smooth UI/UX.'
+        src: <SiPostgresql size={80} />,
+        label: 'PostgreSQL',
+        yoe: 3,
+        about: 'Designing and managing relational databases using PostgreSQL.'
     },
     {
-      src: <SiFlutter size={80} />,
-      label: 'Flutter',
-      yoe: 1,
-      about: 'Cross‑platform mobile apps with Flutter and clean architecture.'
+        src: <SiRedis size={80} />,
+        label: 'Redis',
+        yoe: 2,
+        about: 'In-memory data structure store used as a database, cache, and message broker.'
     },
     {
       src: <SiFastapi size={80} />,
       label: 'FastAPI',
       yoe: 1,
       about: 'High‑performance Python APIs with FastAPI and Pydantic.'
-    }
+    },
+    {
+        src: <FaJava size={80} />,
+        label: 'Java',
+        yoe: 4,
+        about: 'Extensive experience in building scalable applications using Java.'
+    },
+    {
+        src: <SiDocker size={80} />,
+        label: 'Docker',
+        yoe: 1,
+        about: 'Containerizing applications for consistent environments and easy deployment.'
+    },
+    {
+        src:  <SiMongodb size={80} />,
+        label: 'MongoDB',
+        yoe: 2,
+        about: 'NoSQL database for flexible, scalable document storage.'
+    },
   ],
   radius: 250,
   cardWidth: 80,

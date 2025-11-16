@@ -42,7 +42,7 @@ const HeroSection = () => {
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '3rem' }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1, delay: 0.5, ease: 'easeOut' }}
                 className='h-0.5 w-12 bg-accent mr-4 hidden md:block'
               />
               <h2 className='text-xl md:text-2xl text-muted'>
@@ -83,7 +83,7 @@ const HeroSection = () => {
               <motion.a
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.6 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
                 href='#contact'
                 onClick={handleClick}
                 className='btn-primary cursor-target font-semibold'
