@@ -254,8 +254,8 @@ body {
   background: radial-gradient(
     circle at var(--projects-radial-x) var(--projects-radial-y),
     var(--hero-radial-color) 0%,
-    var(--hero-radial-fade) 30%,
-    transparent 40%
+    var(--hero-radial-fade) 40%,
+    transparent 50%
   );
   z-index: 0;
 }
@@ -332,22 +332,50 @@ body {
 }
 
 .btn-secondary {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.72rem 1.15rem;
+  padding: 0.75rem 1.25rem;
   border-radius: 8px;
-  color: var(--text);
-  background: transparent;
+
   border: 1px solid var(--accent);
-  transition: background-color 160ms ease, color 160ms ease,
-    transform 160ms ease;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
 }
+
+.btn-secondary:hover {
+  color: var(--accent-foreground);
+}
+
+/* DIAGONAL FILL LAYER */
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: translate(-100%, 100%) rotate(0deg);
+  transition: transform 0.45s ease;
+  z-index: -1;
+}
+
+/* move the layer diagonally across */
+.btn-secondary:hover::before,
+.btn-secondary:focus::before {
+  transform: translate(0, 0);
+}
+
+.btn-secondary > * {
+  position: relative;
+  z-index: 1; /* keep text above animation */
+}
+
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: var(--accent);
-  color: var(--accent-foreground);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.12);
+  filter: saturate(1.05);
 }
 
 /* small responsive helpers for hero */
