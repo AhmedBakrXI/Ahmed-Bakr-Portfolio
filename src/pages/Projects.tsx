@@ -22,13 +22,12 @@ import {
   SiQt,
   SiCplusplus,
   SiZigbee,
-  SiSiemens,
   SiNextdotjs,
   SiSpringboot,
   SiUnity
 } from 'react-icons/si'
 import type { IconType } from 'react-icons'
-import { TbBrandCSharp } from "react-icons/tb";
+import { TbBrandCSharp } from 'react-icons/tb'
 
 type ProjectSlide = {
   id: number
@@ -41,7 +40,10 @@ type ProjectSlide = {
   tech: Array<string>
 }
 
-const TECH_STYLES: Record<string, { bg: string; color: string; border: string }> = {
+const TECH_STYLES: Record<
+  string,
+  { bg: string; color: string; border: string }
+> = {
   React: {
     bg: 'color-mix(in srgb, #61dafb 25%, transparent)',
     color: '#0b111a',
@@ -101,6 +103,31 @@ const TECH_STYLES: Record<string, { bg: string; color: string; border: string }>
     bg: 'color-mix(in srgb, #eb1c24 18%, transparent)',
     color: '#2c0103',
     border: 'color-mix(in srgb, #eb1c24 60%, transparent)'
+  },
+  'Next.Js': {
+    bg: 'color-mix(in srgb, #000000 18%, transparent)',
+    color: '#121212',
+    border: 'color-mix(in srgb, #000000 60%, transparent)'
+  },
+  'Spring Boot': {
+    bg: 'color-mix(in srgb, #6db33f 20%, transparent)',
+    color: '#152107',
+    border: 'color-mix(in srgb, #6db33f 65%, transparent)'
+  },
+  Java: {
+    bg: 'color-mix(in srgb, #f89820 20%, transparent)',
+    color: '#2b1a00',
+    border: 'color-mix(in srgb, #f89820 60%, transparent)'
+  },
+  Unity: {
+    bg: 'color-mix(in srgb, #000000 18%, transparent)',
+    color: '#121212',
+    border: 'color-mix(in srgb, #000000 60%, transparent)'
+  },
+  'C#': {
+    bg: 'color-mix(in srgb, #68217a 20%, transparent)',
+    color: '#1e0b28',
+    border: 'color-mix(in srgb, #68217a 65%, transparent)'
   }
 }
 
@@ -123,7 +150,6 @@ const TECH_ICONS: Record<string, IconType> = {
   Qt: SiQt,
   'C++': SiCplusplus,
   ZigBee: SiZigbee,
-  Siemens: SiSiemens,
   'Next.Js': SiNextdotjs,
   'Spring Boot': SiSpringboot,
   Java: FaJava,
@@ -258,12 +284,12 @@ const GlassCarousel = ({
                 'color-mix(in srgb, var(--surface) 65%, transparent)'
             }}
             onMouseEnter={() => {
-                setIsPaused(true)
-                setClickToGo(true)
+              setIsPaused(true)
+              setClickToGo(true)
             }}
             onMouseLeave={() => {
-                setIsPaused(false)
-                setClickToGo(false)
+              setIsPaused(false)
+              setClickToGo(false)
             }}
           >
             <img
@@ -276,16 +302,17 @@ const GlassCarousel = ({
             />
           </a>
           <AnimatePresence>
-          {clickToGo && (
-            <motion.h2 
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className='ml-2 font-semibold text-lg surface rounded-full px-2'>
-              Click Icon to <span className='text-accent font-bold'>GO</span>
-            </motion.h2>
-          )}
+            {clickToGo && (
+              <motion.h2
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className='ml-2 font-semibold text-lg surface rounded-full px-2'
+              >
+                Click Icon to <span className='text-accent font-bold'>GO</span>
+              </motion.h2>
+            )}
           </AnimatePresence>
         </div>
       </div>
@@ -339,7 +366,15 @@ const PROJECT_EVENTS = [
     logo: 'https://app.meetjourney.ai/favicon.svg',
     background: JourneyAIBg,
     link: 'https://app.meetjourney.ai',
-    tech: ['React', 'TypeScript', 'TailwindCSS', 'FastAPI', 'MongoDB', 'Redis', 'QDrant']
+    tech: [
+      'React',
+      'TypeScript',
+      'TailwindCSS',
+      'FastAPI',
+      'MongoDB',
+      'Redis',
+      'QDrant'
+    ]
   },
   {
     status: 'SaleSide - AI-Powered Sales Coaching',
@@ -436,4 +471,3 @@ const Projects = () => {
 }
 
 export default Projects
-
