@@ -5,6 +5,7 @@ import STLogo from '../assets/st.png'
 import ETGLogo from '../assets/etg.png'
 import SiemensLogo from '../assets/siemens.png'
 import Resume from '../assets/Ahmed_Bakr_resume.pdf'
+import NokiaLogo from '../assets/nokia.png'
 
 const ResumeCard = () => {
   const cardVariants: Variants = {
@@ -186,6 +187,16 @@ const About = () => {
               viewport={{ once: true, amount: 0.1 }}
             className='leading-relaxed'>
               I’m currently a Software Engineer at{' '}
+              <span className='inline-flex items-start gap-1'>
+                <img
+                  src={NokiaLogo}
+                  alt='Nokia'
+                  className='w-6 h-6 rounded-sm object-contain'
+                />
+                <span className='font-semibold text-accent'>Nokia,</span>
+                <span className='font-semibold'>{' '}</span>
+              </span>
+              I was previously a Software Developer at{' '}
               <span className='inline-flex items-start gap-1'>
                 <img
                   src={ETGLogo}
