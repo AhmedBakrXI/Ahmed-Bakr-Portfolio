@@ -5,6 +5,7 @@ import STLogo from '../assets/st.png'
 import ETGLogo from '../assets/etg.png'
 import SiemensLogo from '../assets/siemens.png'
 import ItiLogo from '../assets/iti.png'
+import NokiaLogo from '../assets/nokia.png'
 
 const Experiences = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -17,6 +18,13 @@ const Experiences = () => {
   }, [])
 
   const events = [
+    {
+      status: 'Software Engineer — Nokia',
+      date: 'April 2026 – Present',
+      description:
+        'Developing and optimizing software solutions for Nokia’s telecommunications products, focusing on performance and scalability.',
+      logo: NokiaLogo
+    },
     {
       status: 'Software Developer — ETG',
       date: 'Oct 2025 – Present',
