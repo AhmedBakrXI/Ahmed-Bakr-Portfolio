@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Experiences from './pages/Experiences'
 import Projects from './pages/Projects'
 import Featured from './pages/Featured'
+import {Analytics} from '@vercel/analytics/react'
 
 const queryClient = new QueryClient()
 
@@ -16,6 +17,7 @@ function App () {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <Analytics />
         <Routes>
           <Route
             path='*'
