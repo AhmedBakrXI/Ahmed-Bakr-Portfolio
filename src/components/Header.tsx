@@ -28,6 +28,7 @@ interface NavBarLinksProps {
 const navItems: NavBarLinksProps[] = [
   { title: 'About', link: '#about' },
   { title: 'Skills', link: '#skills' },
+  { title: 'Featured', link: '#featured' },
   { title: 'Experiences', link: '#experience' },
   { title: 'Projects', link: '#projects' },
   { title: 'Contact', link: '#contact' }
@@ -142,41 +143,16 @@ const MobileMenu = ({
       <div className='absolute inset-0' onClick={onClose} />
       <div className='relative z-10 w-full max-w-md mx-auto px-6'>
         <div className='surface rounded-xl p-8 flex flex-col space-y-6 text-center'>
-          <a
-            href='#about'
-            className='text-lg theme-link'
-            onClick={() => handleClick('#about')}
-          >
-            About
-          </a>
-          <a
-            href='#projects'
-            className='text-lg theme-link'
-            onClick={() => handleClick('#projects')}
-          >
-            Projects
-          </a>
-          <a
-            href='#skills'
-            className='text-lg theme-link'
-            onClick={() => handleClick('#skills')}
-          >
-            Skills
-          </a>
-          <a
-            href='#experience'
-            className='text-lg theme-link'
-            onClick={() => handleClick('#experience')}
-          >
-            Experience
-          </a>
-          <a
-            href='#contact'
-            className='text-lg theme-link'
-            onClick={() => handleClick('#contact')}
-          >
-            Contact
-          </a>
+           {navItems.map(({ title, link }) => (
+            <a
+              key={link}
+              href={link}
+              className='text-lg theme-link'
+              onClick={() => handleClick(link)}
+            >
+              {title}
+            </a>
+           ))}
         </div>
       </div>
     </div>

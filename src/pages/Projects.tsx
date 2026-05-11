@@ -9,6 +9,9 @@ import SiemensLogo from '../assets/siemens.png'
 import VirtualScreenerBg from '../assets/projects/virtual-screener.png'
 import NinjaGame from '../assets/projects/ninja-game.png'
 import NinjaLogo from '../assets/projects/ninja-logo.png'
+import GitKoftaBg from '../assets/projects/git-kofta.png'
+import GitKoftaLogo from '../assets/projects/git-kofta-logo.png'
+
 import { FaEye, FaEyeSlash, FaCode, FaDatabase, FaJava } from 'react-icons/fa'
 import {
   SiReact,
@@ -358,6 +361,16 @@ const GlassCarousel = ({
 }
 
 const PROJECT_EVENTS = [
+  {
+    status: 'GIT Kofta — Discover Your Repo Character',
+    date: 'May 2026',
+    description:
+      'Discover your repo character — a playful yet insightful frontend analysis of your GitHub identity. See how your repository names, commit messages, and development patterns align with personas like.',
+    logo: GitKoftaLogo,
+    background: GitKoftaBg,
+    link: 'https://git-kofta.vercel.app',
+    tech: ['React', 'TypeScript', 'TailwindCSS', 'FastAPI', 'Python']
+  },
   {
     status: 'JourneyAi — AI Assistants for Sales Teams',
     date: 'Oct 2025 – Nov 2025',

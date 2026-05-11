@@ -8,6 +8,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import Experiences from './pages/Experiences'
 import Projects from './pages/Projects'
+import Featured from './pages/Featured'
 
 const queryClient = new QueryClient()
 
@@ -22,6 +23,7 @@ function App () {
               <Layout>
                 <HeroSection />
                 <About />
+                <Featured />
                 <Skills />
                 <Experiences />
                 <Projects />
